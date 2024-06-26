@@ -1,5 +1,5 @@
 workflows:
-  ios-debug:
+  ios-workflow-id:
     name: iOS Debug Build
     max_build_duration: 10 # maximum duration in minutes before the build is terminated
     environment:
