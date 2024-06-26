@@ -1,7 +1,44 @@
 workflows:
-  ios-workflow-id:
-    name: iOS Sample Workflow
+  ios-debug:
+    name: iOS Debug Build
+    max_build_duration: 10 # maximum duration in minutes before the build is terminated
+    environment:
+      vars:
+        # Add any custom environment variables here
+        # For example, your Apple Developer Team ID, App Store Connect API key, etc.
+        APP_STORE_CONNECT_PRIVATE_KEY: Encrypted(...)
+        APP_STORE_CONNECT_ISSUER_ID: Encrypted(...)
+        APP_STORE_CONNECT_KEY_IDENTIFIER: Encrypted(...)
+    triggering:
+      events:
+        - push
+        - pull_request
     scripts:
-      name: Flutter build ipa
-        script:
-            flutter build ios --debug --no-codesign
+      # Define your scripts for building and testing here
+      - name: Set up Flutter
+        script: |
+          flutter upgrade
+          flutter config --enable-ios
+
+      - name: Install CocoaPods dependencies
+        script: |
+          cd ios
+          pod install
+          cd ..
+
+      - name: Build iOS Debug
+        script: |
+          flutter build ios --debug --no-codesign
+
+      # Add any other custom scripts you might need for your build
+
+    artifacts:
+      # Define the artifacts that you want to store after the build
+      - path: build/ios/iphoneos/Runner.app
+        target: artifacts/
+
+    publishing:
+      # Define any publishing steps if needed
+      email:
+        recipients:
+          - winphay.1995@gmail.com
