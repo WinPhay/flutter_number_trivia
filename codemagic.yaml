@@ -2,13 +2,7 @@ workflows:
   ios-workflow-id:
     name: iOS Debug Build
     max_build_duration: 10 # maximum duration in minutes before the build is terminated
-    environment:
-      vars:
-        # Add any custom environment variables here
-        # For example, your Apple Developer Team ID, App Store Connect API key, etc.
-        APP_STORE_CONNECT_PRIVATE_KEY: Encrypted(...)
-        APP_STORE_CONNECT_ISSUER_ID: Encrypted(...)
-        APP_STORE_CONNECT_KEY_IDENTIFIER: Encrypted(...)
+    instance_type: mac_mini_m1
     triggering:
       events:
         - push
