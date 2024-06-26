@@ -1,0 +1,36 @@
+name: number_trivia
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: '>=3.3.3 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  # Service Locator
+  get_it: ^7.7.0
+  # Bloc for state management
+  bloc: ^8.1.4
+  # Value equality
+  equatable: ^2.0.5
+  # Functional programming thingies
+  dartz: ^0.10.1
+  # Connectivity
+  internet_connection_checker: ^1.0.0+1
+  # Remote API
+  http: ^1.2.1
+  # Local cache
+  shared_preferences: ^2.2.3
+  flutter_bloc: ^8.1.5
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+  mockito: ^5.4.4
+
+flutter:
+  uses-material-design: true
