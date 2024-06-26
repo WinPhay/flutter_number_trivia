@@ -22,7 +22,7 @@ workflows:
 
       - name: Build iOS Debug
         script: |
-          flutter build ios --debug --no-codesign
+          flutter build ipa --debug --no-codesign
 
       # Add any other custom scripts you might need for your build
 
