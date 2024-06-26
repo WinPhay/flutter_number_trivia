@@ -2,7 +2,7 @@ workflows:
   ios-workflow-id:
     name: iOS Sample Workflow
     scripts:
-      - name: Flutter build ipa
+      name: Flutter build ipa
         script: | 
             flutter build ios --debug --no-codesign\
             --export-options-plist=/Users/builder/export_options.plist
