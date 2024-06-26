@@ -34,8 +34,9 @@ workflows:
 
     artifacts:
       # Define the artifacts that you want to store after the build
-      - path: build/ios/iphoneos/Runner.app
-        target: artifacts/
+      - build/ios/ipa/*.ipa
+      - /tmp/xcodebuild_logs/*.log
+      - flutter_drive.log
 
     publishing:
       # Define any publishing steps if needed
